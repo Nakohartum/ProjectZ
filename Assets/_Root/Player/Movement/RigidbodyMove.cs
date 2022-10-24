@@ -28,8 +28,9 @@ namespace _Root.Player.Movement
 
         public void Jump(InputAction.CallbackContext obj)
         {
-            Debug.Log("Perfomed");
-            _moveVector.y = Mathf.Sqrt(JumpForce * -2 * -9.8f);
+            float power = Mathf.Sqrt(JumpForce * -2 * -9.8f);
+            Debug.Log(power);
+            _rigidbody.AddForce(_rigidbody.transform.up * power, ForceMode2D.Impulse);
         }
     }
 }
